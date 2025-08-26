@@ -10,9 +10,9 @@ Features:
 6) Track your progress efficiently.
 
 Tech Stack:
-Backend: Spring Boot / Node.js / (your backend)
-Database: MySQL / MongoDB / (your DB)
-Frontend: React / Angular / (if included)
+Backend: Spring Boot
+Database: MySQL
+Frontend:html,css,js
 Tools: Postman, Git, REST APIs
 
 Api EndPoints:
