@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Problem Details • Problem Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="detail-app">
+    <header class="detail-hero">
+      <div class="hero-top">
+        <span class="brand-mini">Problem Tracker</span>
+      </div>
+      <h1 id="detail-title">Loading...</h1>
+      <div class="hero-meta">
+        <span id="detail-difficulty" class="badge">-</span>
+        <span id="detail-pattern" class="chip">-</span>
+        <span id="detail-date" class="chip">—</span>
+      </div>
+    </header>
+
+    <main class="detail-content">
+      <section class="card">
+        <h3 class="card-title">Quick Links</h3>
+        <div class="stack row">
+          <a id="detail-problem-link" href="#" target="_blank" rel="noopener" class="btn btn-primary">Open Problem</a>
+          <a id="detail-video-link" href="#" target="_blank" rel="noopener" class="btn">Watch Video</a>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Notes</h2>
+        <div id="detail-notes" class="notes-body">No notes available.</div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="problem.js"></script>
+</body>
+</html>

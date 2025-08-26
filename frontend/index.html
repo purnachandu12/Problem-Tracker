@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Problem Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">Problem Tracker</div>
+      <nav id="pattern-list" class="pattern-list">
+        <!-- Patterns injected by JS -->
+      </nav>
+      <div class="sidebar-footer">
+      </div>
+    </aside>
+
+    <main class="content">
+      <header class="content-header">
+        <div class="header-left">
+          <h1 id="current-pattern">All Problems</h1>
+          <div id="result-count" class="subtle"></div>
+        </div>
+        <div class="header-right">
+          <input id="search-input" class="input" type="search" placeholder="Search by title..." />
+          <select id="difficulty-filter" class="select">
+            <option value="">All Difficulties</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+          <button id="add-problem-btn" class="btn btn-primary">+ Add Problem</button>
+        </div>
+      </header>
+
+      <section id="problems-container" class="problems-container">
+        <!-- Problem cards injected by JS -->
+      </section>
+    </main>
+  </div>
+
+  <!-- Add/Edit Modal -->
+  <div id="problem-modal" class="modal hidden" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-content" role="document">
+      <div class="modal-header">
+        <h2 id="modal-title">Add Problem</h2>
+        <button class="icon-btn" data-close aria-label="Close">✕</button>
+      </div>
+      <form id="problem-form" class="form">
+        <div class="grid grid-2">
+          <div class="form-control">
+            <label for="title">Title</label>
+            <input id="title" name="title" type="text" class="input" required />
+          </div>
+          <div class="form-control">
+            <label for="difficulty">Difficulty</label>
+            <select id="difficulty" name="difficulty" class="select" required>
+              <option value="">Select difficulty</option>
+              <option value="easy">Easy</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </div>
+          <div class="form-control">
+            <label for="pattern">Pattern</label>
+            <select id="pattern" name="pattern" class="select" required>
+              <!-- Patterns injected by JS -->
+            </select>
+          </div>
+          <div class="form-control">
+            <label for="problemLink">Problem Link</label>
+            <input id="problemLink" name="problemLink" type="url" class="input" placeholder="https://..." />
+          </div>
+          <div class="form-control">
+            <label for="videoLink">Video Link</label>
+            <input id="videoLink" name="videoLink" type="url" class="input" placeholder="https://..." />
+          </div>
+          <div class="form-control grid-span-2">
+            <label>Notes</label>
+            <div class="rt-toolbar">
+              <button type="button" class="rt-btn" data-cmd="bold" title="Bold"><b>B</b></button>
+              <button type="button" class="rt-btn" data-cmd="italic" title="Italic"><i>I</i></button>
+              <button type="button" class="rt-btn" data-cmd="underline" title="Underline"><u>U</u></button>
+              <span class="rt-sep"></span>
+              <button type="button" class="rt-btn" data-cmd="insertUnorderedList" title="Bulleted list">• List</button>
+              <button type="button" class="rt-btn" data-cmd="insertOrderedList" title="Numbered list">1. List</button>
+              <span class="rt-sep"></span>
+              <button type="button" class="rt-btn" data-link title="Insert link">Link</button>
+              <button type="button" class="rt-btn" data-cmd="removeFormat" title="Clear formatting">Clear</button>
+            </div>
+            <div id="notes-editor" class="rt-editor" contenteditable="true" aria-label="Notes editor" placeholder="Add helpful notes..."></div>
+            <textarea id="notes" name="notes" class="textarea" hidden></textarea>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn" data-close>Cancel</button>
+          <button type="submit" class="btn btn-primary" id="save-problem-btn">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Templates -->
+  <template id="problem-card-template">
+    <article class="problem-card">
+      <a class="problem-title" href="#"></a>
+      <div class="problem-meta">
+        <span class="badge"></span>
+        <div class="actions">
+          <button class="btn btn-ghost small edit-btn">Edit</button>
+          <button class="btn btn-danger small delete-btn">Delete</button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
